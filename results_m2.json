@@ -1,0 +1,394 @@
+{
+  "n_labeled": 938603,
+  "n_hazardous": 2066,
+  "split": [
+    {
+      "index": "train (70%)",
+      "rows": 657022,
+      "hazardous": 1446,
+      "hazardous_%": 0.22
+    },
+    {
+      "index": "validation (15%)",
+      "rows": 140790,
+      "hazardous": 310,
+      "hazardous_%": 0.22
+    },
+    {
+      "index": "test (15%)",
+      "rows": 140791,
+      "hazardous": 310,
+      "hazardous_%": 0.22
+    }
+  ],
+  "validation": {
+    "Majority baseline": {
+      "PR-AUC": 0.0022018609276227004,
+      "ROC-AUC": 0.5,
+      "threshold": 1.0,
+      "recall": 0.0,
+      "precision": 0.0,
+      "F1": 0.0,
+      "F2": 0.0,
+      "flagged": 0.0,
+      "fit seconds": 0.2,
+      "CV PR-AUC (tuning sample)": NaN
+    },
+    "Logistic regression": {
+      "PR-AUC": 0.3259793233823201,
+      "ROC-AUC": 0.9974514567565583,
+      "threshold": 0.9672381971779305,
+      "recall": 0.9,
+      "precision": 0.30097087378640774,
+      "F1": 0.4510913500404204,
+      "F2": 0.6437471158283341,
+      "flagged": 927.0,
+      "fit seconds": 7.1,
+      "CV PR-AUC (tuning sample)": "0.748 \u00b1 0.018"
+    },
+    "LDA": {
+      "PR-AUC": 0.3005984831455519,
+      "ROC-AUC": 0.9962107796311265,
+      "threshold": 0.9999977182399787,
+      "recall": 0.9,
+      "precision": 0.14645669291338584,
+      "F1": 0.25191873589164787,
+      "F2": 0.4435612082670906,
+      "flagged": 1905.0,
+      "fit seconds": 2.3,
+      "CV PR-AUC (tuning sample)": "0.719 \u00b1 0.018"
+    },
+    "QDA": {
+      "PR-AUC": 0.1766474257524735,
+      "ROC-AUC": 0.9939135636343596,
+      "threshold": 0.4561498867840093,
+      "recall": 0.9,
+      "precision": 0.12533692722371967,
+      "F1": 0.2200315457413249,
+      "F2": 0.4024812463935372,
+      "flagged": 2226.0,
+      "fit seconds": 2.1,
+      "CV PR-AUC (tuning sample)": "0.584 \u00b1 0.020"
+    },
+    "KNN": {
+      "PR-AUC": 0.4693268744997095,
+      "ROC-AUC": 0.998063735395694,
+      "threshold": 0.3011875834526416,
+      "recall": 0.9,
+      "precision": 0.2829614604462475,
+      "F1": 0.4305555555555556,
+      "F2": 0.6266846361185984,
+      "flagged": 986.0,
+      "fit seconds": 125.0,
+      "CV PR-AUC (tuning sample)": "0.831 \u00b1 0.017"
+    },
+    "Random forest": {
+      "PR-AUC": 0.727188606781172,
+      "ROC-AUC": 0.9991497813946653,
+      "threshold": 0.197375473979608,
+      "recall": 0.9,
+      "precision": 0.484375,
+      "F1": 0.6297968397291196,
+      "F2": 0.7681718061674009,
+      "flagged": 576.0,
+      "fit seconds": 1424.6,
+      "CV PR-AUC (tuning sample)": "0.886 \u00b1 0.016"
+    },
+    "Gradient boosting": {
+      "PR-AUC": 0.7446436237268383,
+      "ROC-AUC": 0.9992262014108311,
+      "threshold": 0.6129976605200788,
+      "recall": 0.9,
+      "precision": 0.4991055456171735,
+      "F1": 0.6421173762945915,
+      "F2": 0.7754307948860478,
+      "flagged": 559.0,
+      "fit seconds": 323.7,
+      "CV PR-AUC (tuning sample)": "0.916 \u00b1 0.017"
+    }
+  },
+  "tuning": {
+    "Logistic regression": {
+      "best_params": {
+        "logisticregression__C": 0.01
+      },
+      "cv_mean": 0.747562779291731,
+      "cv_std": 0.017550367805771572
+    },
+    "LDA": {
+      "best_params": {
+        "lineardiscriminantanalysis__shrinkage": 0.1
+      },
+      "cv_mean": 0.7194040798600863,
+      "cv_std": 0.018296564285678597
+    },
+    "QDA": {
+      "best_params": {
+        "quadraticdiscriminantanalysis__reg_param": 0.5
+      },
+      "cv_mean": 0.5835692774769157,
+      "cv_std": 0.019713472926546047
+    },
+    "KNN": {
+      "best_params": {
+        "kneighborsclassifier__n_neighbors": 31,
+        "kneighborsclassifier__weights": "distance"
+      },
+      "cv_mean": 0.831239179988269,
+      "cv_std": 0.016647216141039395
+    },
+    "Random forest": {
+      "best_params": {
+        "n_estimators": 300,
+        "min_samples_leaf": 1,
+        "max_features": 0.5,
+        "max_depth": 20,
+        "class_weight": null
+      },
+      "cv_mean": 0.8863538215415204,
+      "cv_std": 0.015624833386753125
+    },
+    "Gradient boosting": {
+      "best_params": {
+        "min_samples_leaf": 50,
+        "max_leaf_nodes": 63,
+        "max_iter": 200,
+        "learning_rate": 0.1,
+        "l2_regularization": 10.0,
+        "class_weight": "balanced"
+      },
+      "cv_mean": 0.9155990771786684,
+      "cv_std": 0.01699596912451718
+    }
+  },
+  "selected_model": "Gradient boosting",
+  "threshold": 0.6129976605200788,
+  "tradeoff": [
+    {
+      "recall target": 0.8,
+      "cutoff": 0.945067072620854,
+      "recall": 0.8,
+      "precision": 0.6702702702702703,
+      "objects flagged": 370
+    },
+    {
+      "recall target": 0.85,
+      "cutoff": 0.8743864932068417,
+      "recall": 0.8516129032258064,
+      "precision": 0.6013667425968109,
+      "objects flagged": 439
+    },
+    {
+      "recall target": 0.9,
+      "cutoff": 0.6129976605200788,
+      "recall": 0.9,
+      "precision": 0.4991055456171735,
+      "objects flagged": 559
+    },
+    {
+      "recall target": 0.95,
+      "cutoff": 0.16234719623350766,
+      "recall": 0.9516129032258065,
+      "precision": 0.3816300129366106,
+      "objects flagged": 773
+    },
+    {
+      "recall target": 0.99,
+      "cutoff": 0.0018846347908600789,
+      "recall": 0.9903225806451613,
+      "precision": 0.19566602931803698,
+      "objects flagged": 1569
+    }
+  ],
+  "test": {
+    "PR-AUC": 0.6501223013805739,
+    "ROC-AUC": 0.9988172892626278,
+    "threshold": 0.6129976605200788,
+    "recall": 0.8580645161290322,
+    "precision": 0.44481605351170567,
+    "F1": 0.5859030837004405,
+    "F2": 0.7236126224156693,
+    "flagged": 598.0
+  },
+  "test_ci": {
+    "PR-AUC": [
+      0.5928325663324503,
+      0.7088613355144497
+    ],
+    "recall": [
+      0.8187766931055522,
+      0.8967847452517335
+    ],
+    "precision": [
+      0.4058902287962693,
+      0.48391318271806216
+    ]
+  },
+  "test_confusion": [
+    [
+      140149,
+      332
+    ],
+    [
+      44,
+      266
+    ]
+  ],
+  "criteria": [
+    {
+      "Success criterion (Milestone 1)": "Recall on PHAs >= 0.90",
+      "Test result": "0.858",
+      "Met": "False"
+    },
+    {
+      "Success criterion (Milestone 1)": "Precision >= 0.25 at chosen cutoff",
+      "Test result": "0.445",
+      "Met": "True"
+    },
+    {
+      "Success criterion (Milestone 1)": "PR-AUC >= 0.30 and above LR and majority baselines",
+      "Test result": "0.650 (LR val 0.326)",
+      "Met": "True"
+    }
+  ],
+  "test_sensitivity": [
+    {
+      "validation recall target": 0.8,
+      "cutoff": 0.945067072620854,
+      "test recall": 0.7032258064516129,
+      "test precision": 0.5876010781671159,
+      "test objects flagged": 371
+    },
+    {
+      "validation recall target": 0.85,
+      "cutoff": 0.8743864932068417,
+      "test recall": 0.7806451612903226,
+      "test precision": 0.5295404814004376,
+      "test objects flagged": 457
+    },
+    {
+      "validation recall target": 0.9,
+      "cutoff": 0.6129976605200788,
+      "test recall": 0.8580645161290322,
+      "test precision": 0.44481605351170567,
+      "test objects flagged": 598
+    },
+    {
+      "validation recall target": 0.95,
+      "cutoff": 0.16234719623350766,
+      "test recall": 0.9354838709677419,
+      "test precision": 0.338389731621937,
+      "test objects flagged": 857
+    },
+    {
+      "validation recall target": 0.99,
+      "cutoff": 0.0018846347908600789,
+      "test recall": 0.9935483870967742,
+      "test precision": 0.19142324425108764,
+      "test objects flagged": 1609
+    }
+  ],
+  "neo_test": {
+    "PR-AUC": 0.6501232775921236,
+    "ROC-AUC": 0.9479199110122358,
+    "threshold": 0.6129976605200788,
+    "recall": 0.8580645161290322,
+    "precision": 0.44481605351170567,
+    "F1": 0.5859030837004405,
+    "F2": 0.7236126224156693,
+    "flagged": 598.0
+  },
+  "neo_test_n": 3500,
+  "ablation": [
+    {
+      "feature set": "Reference (+H, +MOID)",
+      "n features": 29,
+      "PR-AUC": 0.9996585361567885,
+      "precision at recall 0.90": 1.0,
+      "seconds": 9
+    },
+    {
+      "feature set": "Primary + H",
+      "n features": 28,
+      "PR-AUC": 0.9325818143256197,
+      "precision at recall 0.90": 0.8303571428571429,
+      "seconds": 13
+    },
+    {
+      "feature set": "Primary",
+      "n features": 27,
+      "PR-AUC": 0.7446436237268383,
+      "precision at recall 0.90": 0.4991055456171735,
+      "seconds": 13
+    },
+    {
+      "feature set": "No uncertainty features",
+      "n features": 24,
+      "PR-AUC": 0.42050885855747067,
+      "precision at recall 0.90": 0.20575221238938052,
+      "seconds": 12
+    },
+    {
+      "feature set": "No perihelion features",
+      "n features": 13,
+      "PR-AUC": 0.6154733762155614,
+      "precision at recall 0.90": 0.4090909090909091,
+      "seconds": 7
+    }
+  ],
+  "perm_importance": {
+    "log_q": 0.834,
+    "log_sigma_i": 0.1174,
+    "e": 0.0622,
+    "i": 0.0619,
+    "cos_w": 0.0603,
+    "sin_w": 0.0466,
+    "log_rel_sigma_a": 0.017,
+    "log_a": 0.0057,
+    "cls_APO": 0.0048,
+    "log_rms": 0.0019,
+    "earth_crossing": 0.0011,
+    "sin_om": 0.0002
+  },
+  "lr_coef": {
+    "cls_AMO": 0.861,
+    "earth_crossing": 0.698,
+    "cls_APO": 0.664,
+    "log_rel_sigma_a": -0.58,
+    "log_sigma_i": -0.479,
+    "e": 0.405,
+    "log_q": -0.387,
+    "cls_MBA": -0.349,
+    "i": 0.319,
+    "cos_om": 0.225
+  },
+  "rho_relsigma_H_neo": 0.601361934793687,
+  "errors": {
+    "missed PHAs (FN)": {
+      "count": "44",
+      "median H": "21.35",
+      "median MOID (AU)": "0.036134299999999994",
+      "median e": "0.5689042442148567",
+      "most common class": "APO"
+    },
+    "caught PHAs (TP)": {
+      "count": "266",
+      "median H": "20.2",
+      "median MOID (AU)": "0.0220321",
+      "median e": "0.5370924762176131",
+      "most common class": "APO"
+    },
+    "false alarms (FP)": {
+      "count": "332",
+      "median H": "22.0",
+      "median MOID (AU)": "0.05287345",
+      "median e": "0.5603909071052205",
+      "most common class": "APO"
+    }
+  },
+  "fp_reason": {
+    "close orbit but too small (MOID <= 0.05, H > 22)": 151,
+    "large but orbit not close enough (MOID > 0.05)": 178
+  },
+  "runtime_minutes": 34.3
+}
